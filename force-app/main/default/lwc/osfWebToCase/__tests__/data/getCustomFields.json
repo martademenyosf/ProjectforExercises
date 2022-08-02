@@ -1,0 +1,46 @@
+[
+    {
+        "Field_Name__c": "Supplied Phone",
+        "Default_Value__c": "123456",
+        "Field_Api_Name__c": "SuppliedPhone",
+        "isReadOnly__c": true,
+        "Id": "m007R000000DxPDQA0"
+    },
+    {
+        "Field_Name__c": "Brand",
+        "Field_Api_Name__c": "Brand__c",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxPXQA0"
+    },
+    {
+        "Field_Name__c": "Web Name",
+        "Field_Api_Name__c": "SuppliedName",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxPIQA0"
+    },
+    {
+        "Field_Name__c": "Subject",
+        "Field_Api_Name__c": "Subject",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxOPQA0"
+    },
+    {
+        "Field_Name__c": "Description",
+        "Field_Api_Name__c": "Description",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxOZQA0"
+    },
+    {
+        "Field_Name__c": "Case Origin",
+        "Default_Value__c": "Web",
+        "Field_Api_Name__c": "Origin",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxPNQA0"
+    },
+    {
+        "Field_Name__c": "SuppliedEmail",
+        "Field_Api_Name__c": "SuppliedEmail",
+        "isReadOnly__c": false,
+        "Id": "m007R000000DxP8QAK"
+    }
+]

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <constants>
+        <name>c_Brand_1</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Brand 1</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_Brand_2</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Brand 2</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_ToAddress_1</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>demenykmarta@gmail.com</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>c_ToAddress_2</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>demenymarta@yahoo.com</stringValue>
+        </value>
+    </constants>
+    <description>Update the Case Brand field using the data from EmailMessage</description>
+    <formulas>
+        <name>f_CaseBrand</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.ToAddress} == {!c_ToAddress_1}, {!c_Brand_1}, 
+ IF({!$Record.ToAddress} == {!c_ToAddress_2}, {!c_Brand_2}, &apos;&apos;))</expression>
+    </formulas>
+    <interviewLabel>Update Case Brand {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Case Brand</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Case_Barnd_Field</name>
+        <label>Update Case Barnd Field</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Parent.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Brand__c</field>
+            <value>
+                <elementReference>f_CaseBrand</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Case_Barnd_Field</targetReference>
+        </connector>
+        <object>EmailMessage</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>
